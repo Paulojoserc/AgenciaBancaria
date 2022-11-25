@@ -57,4 +57,14 @@ public void setSaldo(Double saldo) {
 		System.out.println("Não foi possível realizar o saque!");
 	}
 }
+ public void transferir (Conta contaParaDeposito, Double valor) {
+	 if(valor >0 && this.getSaldo() >= valor) {
+		 setSaldo(getSaldo() - valor);
+		 contaParaDeposito.saldo = contaParaDeposito.getSaldo()+ valor;
+		 System.out.println("Transferência realizada com sucesso!");
+	 }else {
+		 System.out.println("Não foi possível realizar o transferência!");
+	 }
+	
+ }
 }
