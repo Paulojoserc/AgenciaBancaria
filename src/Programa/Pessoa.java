@@ -3,13 +3,13 @@ package Programa;
 public class Pessoa {
 	private static int counter =1;
 	private String nome;
-	private String CPF;
+	private String cpf;
 	private String email;
 	
-	public Pessoa(String nome, String CPF, String email) {
+	public Pessoa(String nome, String cpf, String email) {
 		super();
 		this.nome = nome;
-		this.CPF = CPF;
+		this.cpf = cpf;
 		this.email = email;
 		counter+=1; 
 	}
@@ -23,11 +23,11 @@ public class Pessoa {
 	}
 
 	public String getCPF() {
-		return CPF;
+		return cpf;
 	}
 
 	public void setCPF(String cPF) {
-		CPF = cPF;
+		cpf = cPF;
 	}
 
 	public String getEmail() {

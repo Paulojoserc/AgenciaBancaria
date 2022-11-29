@@ -10,7 +10,7 @@ public class Test {
 	static List<Conta> ContasBancarias;
 
 	 public static void main(String[] args) {
-	        contasBancarias = new ArrayList<Conta>();
+	        ContasBancarias = new ArrayList<Conta>();
 	        operacoes();
 	    }
 
@@ -28,7 +28,7 @@ public class Test {
 	        System.out.println("|   Opção 5 - Listar        |");
 	        System.out.println("|   Opção 6 - Sair          |");
 
-	        int operacao = input.nextInt();;
+	        int operacao = sc.nextInt();;
 
 	        switch (operacao) {
 	            case 1:
@@ -66,19 +66,19 @@ public class Test {
 	        //System.out.println("Você está criando uma conta\n");
 
 	        System.out.println("\nNome: ");
-	        String nome = input.next();
+	        String nome = sc.next();
 
 	        System.out.println("\nCPF: ");
-	        String cpf = input.next();
+	        String cpf = sc.next();
 
 	        System.out.println("Email: ");
-	        String email = input.next();
+	        String email = sc.next();
 
 	        Pessoa cliente = new Pessoa(nome, cpf, email);
 
 	        Conta conta = new Conta(cliente);
 
-	        contasBancarias.add(conta);
+	        ContasBancarias.add(conta);
 	        System.out.println("--- Sua conta foi criada com sucesso! ---");
 
 	        operacoes();
@@ -87,8 +87,8 @@ public class Test {
 
 	    private static Conta encontrarConta(int numeroConta) {
 	        Conta conta = null;
-	        if(contasBancarias.size() > 0) {
-	            for(Conta contaa : contasBancarias) {
+	        if(ContasBancarias.size() > 0) {
+	            for(Conta contaa : ContasBancarias) {
 	                if(contaa.getNumeroConta() == numeroConta) {
 	                    conta = contaa;
 	                }
@@ -99,12 +99,12 @@ public class Test {
 
 	    public static void depositar() {
 	        System.out.println("Número da conta: ");
-	        int numeroConta = input.nextInt();
+	        int numeroConta = sc.nextInt();
 	        Conta conta = encontrarConta(numeroConta);
 
 	        if(conta != null) {
 	            System.out.println("Qual valor deseja depositar? ");
-	            Double valorDeposito = input.nextDouble();
+	            Double valorDeposito = sc.nextDouble();
 
 	            conta.depositar(valorDeposito);
 	        }else {
@@ -117,13 +117,13 @@ public class Test {
 
 	    public static void sacar() {
 	        System.out.println("Número da conta: ");
-	        int numeroConta = input.nextInt();
+	        int numeroConta = sc.nextInt();
 
 	        Conta conta = encontrarConta(numeroConta);
 
 	        if(conta != null) {
 	            System.out.println("Qual valor deseja sacar? ");
-	            Double valorSaque = input.nextDouble();
+	            Double valorSaque = sc.nextDouble();
 
 	            conta.sacar(valorSaque);
 	            System.out.println("--- Saque realizado com sucesso! ---");
@@ -137,19 +137,19 @@ public class Test {
 
 	    public static void transferir() {
 	        System.out.println("Número da conta que vai enviar a transferência: ");
-	        int numeroContaRemetente = input.nextInt();
+	        int numeroContaRemetente = sc.nextInt();
 
 	        Conta contaRemetente = encontrarConta(numeroContaRemetente);
 
 	        if(contaRemetente != null) {
 	            System.out.println("Número da conta do destinatário: ");
-	            int numeroContaDestinatario = input.nextInt();
+	            int numeroContaDestinatario = sc.nextInt();
 
 	            Conta contaDestinatario = encontrarConta(numeroContaDestinatario);
 
 	            if(contaDestinatario != null) {
 	                System.out.println("Valor da transferência: ");
-	                Double valor = input.nextDouble();
+	                Double valor = sc.nextDouble();
 
 	                contaRemetente.transferencia(contaDestinatario, valor);
 
@@ -164,8 +164,8 @@ public class Test {
 	    }
 
 	    public static void listarContas() {
-	        if(contasBancarias.size() > 0) {
-	            for(Conta conta: contasBancarias) {
+	        if(ContasBancarias.size() > 0) {
+	            for(Conta conta: ContasBancarias) {
 	                System.out.println(conta);
 	            }
 	        }else {
